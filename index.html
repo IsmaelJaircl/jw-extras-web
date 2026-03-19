@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicio JW | Soporte Oficial</title>
+    <title>Servicio JW | Gestión Teocrática Avanzada</title>
     
-    <!-- ETIQUETA DE VERIFICACIÓN DE GOOGLE (NO TOCAR) -->
-    <meta name="google-site-verification" content="googleffe1d5e695eed352" />
+    <!-- NUEVA ETIQUETA DE VERIFICACIÓN DE GOOGLE -->
+    <meta name="google-site-verification" content="19ADT_-SKQlU1AkqNYKCh8eRjh7qXYHI87OiJlvJvzQ" />
     
     <!-- Tipografía Moderna de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,238 +15,218 @@
     
     <style>
         :root {
-            --primary: #4361ee;
-            --secondary: #3f37c9;
-            --accent: #4cc9f0;
-            --dark: #2b2d42;
-            --light: #f8f9fa;
-            --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
         }
 
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #f4f7fe;
+            background-color: var(--light);
             color: var(--dark);
             line-height: 1.7;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los botones */
         }
 
-        /* Menú de Navegación Glassmorphism */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            padding: 18px 0;
-            transition: all 0.3s ease;
-        }
-
-        nav a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            margin: 0 15px;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-        }
-
-        nav a:hover {
-            background: rgba(67, 97, 238, 0.1);
-            color: var(--primary);
-        }
-
-        /* Sección Superior (Hero) */
+        /* --- SECCIÓN DE INICIO (PANTALLA LIMPIA) --- */
         .hero {
-            background: var(--gradient);
-            padding: 160px 20px 120px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 120px 20px;
             text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        /* Efecto de inclinación abajo del Hero */
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: #f4f7fe;
-            transform: skewY(-2deg);
-            z-index: 1;
+            min-height: 80vh; /* Ocupa casi toda la pantalla inicial */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             font-weight: 800;
+            color: var(--dark);
             margin: 0 0 15px;
-            letter-spacing: -1px;
-            text-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            position: relative;
-            z-index: 2;
+            letter-spacing: -1.5px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p.lead {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 650px;
+            margin: 0 auto 50px;
             animation: fadeInUp 1s ease;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.9;
-            font-weight: 300;
-            position: relative;
-            z-index: 2;
+        /* Bloques de Características */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto 50px;
             animation: fadeInUp 1.2s ease;
         }
 
-        /* Contenedor de Políticas */
-        .container {
-            max-width: 850px;
-            margin: -40px auto 50px;
-            position: relative;
-            z-index: 10;
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .feature-card h3 { margin: 0 0 10px; color: var(--dark); font-size: 1.3rem; }
+        .feature-card p { margin: 0; color: var(--gray); font-size: 0.95rem; }
+
+        /* Botones Elegantes en la parte inferior del Inicio */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 35px;
+            border-radius: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--dark);
+            border: 2px solid transparent;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* --- SECCIONES LEGALES (POLÍTICAS Y CONDICIONES) --- */
+        .legal-sections {
+            max-width: 800px;
+            margin: 80px auto;
             padding: 0 20px;
         }
 
-        /* Estilo de Tarjetas */
-        .card {
+        .legal-card {
             background: white;
-            border-radius: 24px;
             padding: 50px;
-            margin-bottom: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.02);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-            scroll-margin-top: 100px; /* Para que al navegar no tape el título */
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+            margin-bottom: 60px;
+            scroll-margin-top: 50px; /* Margen superior al saltar a esta sección */
+            border-top: 5px solid var(--primary);
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.07);
-        }
-
-        .card h2 {
-            color: var(--primary);
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            letter-spacing: -0.5px;
-        }
-
-        .card h2::before {
-            content: '';
-            display: inline-block;
-            width: 35px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 3px;
-        }
-
-        .card p {
-            font-size: 1.05rem;
-            color: #555;
-        }
-
-        .date {
-            font-size: 0.9rem;
-            color: #999;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            display: block;
-        }
-
-        /* Estilo de Listas modernas */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 30px;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 35px;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            color: #555;
-        }
-
-        ul li::before {
-            content: '✓';
+        .legal-card h2 { font-size: 2.2rem; margin-top: 0; margin-bottom: 5px; color: var(--dark); }
+        .date { font-size: 0.9rem; color: var(--gray); margin-bottom: 30px; display: block; }
+        
+        .legal-card ul { padding-left: 0; list-style: none; margin-top: 20px; }
+        .legal-card ul li { position: relative; padding-left: 25px; margin-bottom: 15px; color: #475569; }
+        .legal-card ul li::before {
+            content: '•';
             position: absolute;
             left: 0;
-            top: 2px;
-            color: white;
-            background: var(--accent);
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 0.8rem;
-            font-weight: bold;
+            top: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+            line-height: 1;
         }
 
-        strong {
-            color: var(--secondary);
-            font-weight: 800;
-        }
-
-        /* Pie de página */
+        /* Footer */
         footer {
             text-align: center;
             padding: 40px;
-            color: #888;
-            font-size: 0.95rem;
-            font-weight: 300;
+            color: var(--gray);
+            background: white;
+            border-top: 1px solid #e2e8f0;
         }
 
-        /* Animación inicial */
+        /* Animaciones */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsividad para móviles */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.5rem; }
-            .card { padding: 30px 20px; }
-            nav a { margin: 0 5px; font-size: 0.85rem; padding: 6px 10px; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .action-buttons { flex-direction: column; width: 100%; max-width: 300px; }
+            .btn { width: 100%; box-sizing: border-box; }
+            .legal-card { padding: 30px 20px; }
+            .features { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#privacy">Privacidad</a>
-        <a href="#tos">Condiciones</a>
-    </nav>
-
-    <div class="hero" id="inicio">
-        <h1>SERVICIO JW</h1>
-        <p>Potente, segura y privada. La aplicación definitiva para organizar tus datos teocráticos sin depender de terceros.</p>
-    </div>
-
-    <div class="container">
+    <!-- INICIO: Portada ultra limpia e informativa -->
+    <section class="hero">
+        <h1>Servicio <span>JW</span></h1>
+        <p class="lead">Tu aplicación definitiva. Organiza tus actividades de forma eficiente, privada y sin depender de nadie más.</p>
         
-        <div id="privacy" class="card">
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Privacidad Absoluta</h3>
+                <p>Tus datos son enteramente tuyos. Se guardan localmente en tu teléfono y no los vemos.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">☁️</div>
+                <h3>Respaldo Seguro</h3>
+                <p>Conecta con tu Google Drive personal para guardar y restaurar tus copias de seguridad de forma cifrada.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Gestión Fácil</h3>
+                <p>Maneja tu tiempo y territorios con una interfaz moderna y amigable de principio a fin.</p>
+            </div>
+        </div>
+
+        <!-- Botones que mandan a leer las políticas abajo -->
+        <div class="action-buttons">
+            <a href="#privacy" class="btn btn-primary">Política de Privacidad</a>
+            <a href="#tos" class="btn btn-outline">Condiciones de Servicio</a>
+        </div>
+    </section>
+
+    <!-- SECCIONES LEGALES (Se llega aquí por los botones) -->
+    <div class="legal-sections">
+        
+        <main id="privacy" class="legal-card">
             <h2>Política de Privacidad</h2>
             <span class="date">Última actualización: 19 de marzo de 2026</span>
             <p>En <strong>Servicio JW</strong>, diseñamos nuestra aplicación pensando en tu tranquilidad. Valoramos tu información y la procesamos estrictamente bajo las siguientes normas:</p>
@@ -256,25 +236,24 @@
                 <li><strong>Garantía de Privacidad 100%:</strong> Como desarrolladores, no monitorizamos, no leemos, no recolectamos y no guardamos en servidores externos absolutamente nada de lo que creas en la aplicación.</li>
                 <li><strong>Conexiones Aseguradas:</strong> Todo intercambio de datos durante el respaldo ocurre de manera blindada mediante la infraestructura oficial y cifrada de Google.</li>
             </ul>
-        </div>
+        </main>
 
-        <div id="tos" class="card">
+        <section id="tos" class="legal-card">
             <h2>Condiciones de Servicio</h2>
             <span class="date">Última actualización: 19 de marzo de 2026</span>
             <p>El uso de la aplicación <strong>Servicio JW</strong> está sujeto al cumplimiento y aceptación de las presentes condiciones del servicio:</p>
             <ul>
                 <li><strong>Responsabilidad de Uso:</strong> La herramienta se proporciona para tu gestión personal. Su manejo y la información ahí ingresada es de tu única responsabilidad.</li>
                 <li><strong>Cuentas Personales:</strong> La protección de tu cuenta de Google y de las copias de seguridad alojadas en Drive corre exclusivamente por tu cuenta.</li>
-                <li><strong>Integridad de la Información:</strong> Aunque facilitamos la herramienta de "Respaldo", el desarrollador no se responsabiliza por la pérdida de datos derivada por roturas del teléfono, desinstalaciones accidentales sin respaldo, o cambios en los servicios de Google Cloud.</li>
-                <li><strong>Naturaleza No Comercial:</strong> Este es un proyecto de carácter gratuito y sin fines de lucro.</li>
+                <li><strong>Integridad de la Información:</strong> Aunque facilitamos la herramienta de "Respaldo", el desarrollador no se responsabiliza por la pérdida de datos o desinstalaciones accidentales. Conserve siempre sus copias de seguridad.</li>
+                <li><strong>Naturaleza No Comercial:</strong> Este es un proyecto de carácter gratuito, privado y sin fines de lucro.</li>
             </ul>
-        </div>
+        </section>
 
     </div>
 
     <footer>
-        <p>Desarrollado con dedicación por <strong>Ismael Castro Luna</strong><br>
-        Contacto: ismaeljaircl@gmail.com</p>
+        <p>Desarrollado con dedicación por <strong>Ismael Castro Luna</strong> | ismaeljaircl@gmail.com</p>
         <p>&copy; 2026 Servicio JW. Todos los derechos reservados.</p>
     </footer>
 
