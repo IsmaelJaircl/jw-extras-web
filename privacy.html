@@ -3,59 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacidad - Servicio JW</title>
-    <!-- Verificación -->
+    <title>Política de Privacidad - Servicio JW</title>
     <meta name="google-site-verification" content="19ADT_-SKQlU1AkqNYKCh8eRjh7qXYHI87OiJlvJvzQ" />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #1e293b; padding: 40px 20px; line-height: 1.6; }
-        .legal-card { max-width: 800px; margin: 0 auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid #2563eb; }
-        h1 { color: #2563eb; font-size: 2.2rem; margin-top: 0; margin-bottom: 5px; }
-        h3 { color: #1e293b; font-size: 1.3rem; margin-top: 30px; margin-bottom: 10px; }
-        .date { color: #64748b; font-size: 0.9rem; margin-bottom: 30px; display: block; font-weight: bold; }
-        p { color: #475569; font-size: 1.05rem; margin-bottom: 15px; }
-        ul { padding-left: 20px; margin-top: 5px; }
-        li { margin-bottom: 10px; color: #475569; font-size: 1.05rem; }
-        strong { color: #1e293b; }
-        code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #2563eb; font-family: monospace; font-size: 0.9rem; }
-        .btn-back { display: inline-block; margin-bottom: 20px; color: #2563eb; text-decoration: none; font-weight: bold; }
-        .btn-back:hover { text-decoration: underline; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --blue-600: #1d4ed8;
+            --blue-500: #2563eb;
+            --blue-400: #3b82f6;
+            --blue-100: #dbeafe;
+            --blue-50: #eff6ff;
+            --slate-900: #0f172a;
+            --slate-700: #334155;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-300: #cbd5e1;
+            --slate-100: #f1f5f9;
+            --white: #ffffff;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--slate-100); color: var(--slate-900); line-height: 1.7; min-height: 100vh; }
+
+        /* NAV */
+        nav { background: rgba(255,255,255,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+        .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--blue-500); text-decoration: none; }
+        .nav-logo span { color: var(--slate-900); }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; color: var(--slate-500); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+        .btn-back:hover { color: var(--blue-500); }
+
+        /* HERO STRIP */
+        .page-hero { background: linear-gradient(135deg, var(--slate-900) 0%, #1e3a8a 100%); padding: 60px 40px; text-align: center; }
+        .page-hero .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); font-size: 0.75rem; font-weight: 700; padding: 5px 14px; border-radius: 100px; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.06em; }
+        .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: 2.8rem; color: white; margin-bottom: 10px; }
+        .page-hero .date { font-size: 0.85rem; color: var(--slate-400); }
+
+        /* CONTENT */
+        .content-wrap { max-width: 820px; margin: 0 auto; padding: 48px 24px 80px; }
+
+        /* INTRO CARD */
+        .intro-card { background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 16px; padding: 28px 32px; margin-bottom: 40px; display: flex; gap: 18px; align-items: flex-start; }
+        .intro-icon { font-size: 2rem; flex-shrink: 0; margin-top: 2px; }
+        .intro-card p { font-size: 1rem; color: var(--slate-700); line-height: 1.8; margin: 0; }
+        .intro-card strong { color: var(--blue-600); }
+
+        /* SECTIONS */
+        .policy-section { background: var(--white); border-radius: 16px; border: 1px solid #e5eaf4; margin-bottom: 20px; overflow: hidden; }
+        .section-header { padding: 24px 28px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid #f1f5f9; }
+        .section-num { width: 36px; height: 36px; min-width: 36px; background: var(--blue-500); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+        .section-header h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--slate-900); font-weight: 400; }
+        .section-body { padding: 24px 28px; }
+        .section-body p { font-size: 0.97rem; color: var(--slate-500); line-height: 1.85; margin-bottom: 14px; }
+        .section-body p:last-child { margin-bottom: 0; }
+        .section-body strong { color: var(--slate-900); font-weight: 600; }
+        .section-body em { color: var(--blue-600); font-style: normal; font-weight: 500; }
+
+        /* LIST */
+        .policy-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .policy-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.97rem; color: var(--slate-500); line-height: 1.7; }
+        .policy-list li::before { content: ''; width: 8px; height: 8px; min-width: 8px; background: var(--blue-400); border-radius: 50%; margin-top: 8px; }
+        .policy-list li strong { color: var(--slate-900); font-weight: 600; }
+
+        /* BADGE INLINE */
+        code { background: var(--blue-50); border: 1px solid var(--blue-100); padding: 2px 8px; border-radius: 6px; color: var(--blue-600); font-family: monospace; font-size: 0.88rem; }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box { background: var(--slate-900); border-radius: 12px; padding: 20px 24px; margin-top: 16px; display: flex; gap: 14px; align-items: center; }
+        .highlight-box .hi { font-size: 1.5rem; flex-shrink: 0; }
+        .highlight-box p { color: var(--slate-300); font-size: 0.92rem; line-height: 1.7; margin: 0; }
+        .highlight-box strong { color: white; }
+
+        /* NO DATA BADGE */
+        .no-data-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+        .no-badge { display: inline-flex; align-items: center; gap: 6px; background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; font-size: 0.8rem; font-weight: 600; padding: 5px 12px; border-radius: 100px; }
+        .yes-badge { display: inline-flex; align-items: center; gap: 6px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; font-size: 0.8rem; font-weight: 600; padding: 5px 12px; border-radius: 100px; }
+
+        /* CONTACT */
+        .contact-card { background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-600) 100%); border-radius: 16px; padding: 32px; text-align: center; margin-top: 40px; }
+        .contact-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: white; margin-bottom: 8px; font-weight: 400; }
+        .contact-card p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 18px; }
+        .contact-card a { display: inline-block; background: white; color: var(--blue-600); font-weight: 700; font-size: 0.95rem; padding: 12px 28px; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
+        .contact-card a:hover { background: var(--blue-50); transform: translateY(-1px); }
+
+        /* FOOTER */
+        .page-footer { background: var(--slate-900); padding: 30px 40px; text-align: center; }
+        .page-footer .logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: white; margin-bottom: 6px; }
+        .page-footer .logo span { color: var(--blue-400); }
+        .page-footer p { font-size: 0.78rem; color: var(--slate-500); }
+        .page-footer .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 12px 0; }
+        .page-footer .footer-links a { color: var(--slate-400); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+        .page-footer .footer-links a:hover { color: var(--blue-400); }
+
+        @media (max-width: 700px) {
+            nav { padding: 14px 20px; }
+            .page-hero { padding: 50px 22px; }
+            .page-hero h1 { font-size: 2rem; }
+            .content-wrap { padding: 32px 16px 60px; }
+            .intro-card { flex-direction: column; gap: 10px; padding: 22px; }
+            .section-header { padding: 20px 22px; }
+            .section-body { padding: 20px 22px; }
+        }
     </style>
 </head>
 <body>
-    <div class="legal-card">
-        <a href="index.html" class="btn-back">← Volver al Inicio</a>
-        <h1>Política de Privacidad</h1>
-        <span class="date">Última actualización: 19 de marzo de 2026</span>
-        
-        <p>En <strong>Servicio JW</strong> valoramos tu privacidad y estamos totalmente comprometidos a proteger tus datos personales. Esta política explica cómo manejamos tu información.</p>
 
-        <h3>1. Información que recopilamos</h3>
-        <p>La aplicación recopila y almacena la siguiente información <strong>exclusivamente de forma local</strong> en tu dispositivo celular:</p>
-        <ul>
-            <li><strong>Información del Perfil:</strong> Nombre, congregación, tipo de publicador y privilegios.</li>
-            <li><strong>Datos de Servicio:</strong> Informes de horas teocráticas, colocaciones, videos y revisitas.</li>
-            <li><strong>Datos de Territorio:</strong> Mapas, notas e historial de actividades para la gestión de territorios.</li>
-        </ul>
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="nav-logo">Servicio <span>JW</span></a>
+    <a href="index.html" class="btn-back">← Volver al inicio</a>
+</nav>
 
-        <h3>2. Uso de Google Drive (Nube)</h3>
-        <p>Si activas la función opcional de copia de seguridad (Backup), la aplicación solicitará acceso a tu Google Drive mediante el permiso sensible <code>drive.file</code>. Este permiso es oficial y tiene reglas estrictas:</p>
-        <ul>
-            <li><strong>Propósito:</strong> Este acceso se utiliza <em>exclusivamente</em> para crear, subir y restaurar un único archivo de seguridad llamado <code>servicio_backup.json</code> dentro de una carpeta privada llamada <code>ServicioJW_Respaldos</code>.</li>
-            <li><strong>Alcance / Límites:</strong> La aplicación <strong>NO PUEDE</strong> ver, editar, leer ni eliminar ningún otro archivo personal, fotografía o documento en tu cuenta de Google Drive. Solo tiene acceso a la carpeta que la propia aplicación crea.</li>
-        </ul>
+<!-- HERO -->
+<div class="page-hero">
+    <div class="badge">🔒 Documento legal</div>
+    <h1>Política de Privacidad</h1>
+    <p class="date">Última actualización: 19 de marzo de 2026</p>
+</div>
 
-        <h3>3. Almacenamiento de Datos y Terceros</h3>
-        <ul>
-            <li><strong>Almacenamiento Local:</strong> Toda tu información se almacena en una base de datos privada encriptada en tu dispositivo.</li>
-            <li><strong>Terceros:</strong> Nosotros NO vendemos, transamos ni compartimos tus datos con ningún tercero. La sincronización es una vía completamente privada y directa entre tu celular y tu propia cuenta de Google personal.</li>
-        </ul>
+<!-- CONTENT -->
+<div class="content-wrap">
 
-        <h3>4.  Tus Derechos</h3>
-        <p>Tienes control total y absoluto sobre tus datos en todo momento. Puedes eliminar permanentemente toda la información simplemente borrando los datos de la aplicación o desinstalándola de tu teléfono. Así mismo, puedes entrar a tu Google Drive y eliminar la carpeta de respaldo manualmente cuando lo desees.</p>
-
-        <h3>5. Contacto</h3>
-        <p>Si tienes alguna duda técnica o sobre la gestión de esta Política de Privacidad, puedes ponerte en contacto directamente con el desarrollador al siguiente correo: <strong>ismaeljair22@gmail.com</strong>.</p>
+    <!-- INTRO -->
+    <div class="intro-card">
+        <div class="intro-icon">🛡️</div>
+        <p>En <strong>Servicio JW</strong> valoramos tu privacidad y estamos totalmente comprometidos a proteger tus datos personales. Esta política explica de forma clara y transparente cómo manejamos tu información.</p>
     </div>
+
+    <!-- SECTION 1 -->
+    <div class="policy-section">
+        <div class="section-header">
+            <div class="section-num">1</div>
+            <h2>Información que recopilamos</h2>
+        </div>
+        <div class="section-body">
+            <p>La aplicación recopila y almacena la siguiente información <em>exclusivamente de forma local</em> en tu dispositivo celular. En ningún momento se envía a servidores externos.</p>
+            <ul class="policy-list">
+                <li><div><strong>Información del Perfil:</strong> Nombre, congregación, tipo de publicador y privilegios.</div></li>
+                <li><div><strong>Datos de Servicio:</strong> Informes de horas teocráticas, colocaciones, videos y revisitas.</div></li>
+                <li><div><strong>Datos de Territorio:</strong> Mapas, notas e historial de actividades para la gestión de territorios.</div></li>
+            </ul>
+            <div class="no-data-row">
+                <span class="no-badge">✕ Sin rastreo de ubicación</span>
+                <span class="no-badge">✕ Sin analíticas de uso</span>
+                <span class="no-badge">✕ Sin publicidad</span>
+                <span class="yes-badge">✓ 100% local en tu dispositivo</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="policy-section">
+        <div class="section-header">
+            <div class="section-num">2</div>
+            <h2>Uso de Google Drive (Nube)</h2>
+        </div>
+        <div class="section-body">
+            <p>Si activas la función opcional de copia de seguridad, la aplicación solicitará acceso a tu Google Drive mediante el permiso sensible <code>drive.file</code>. Este permiso es oficial y tiene reglas estrictas:</p>
+            <ul class="policy-list">
+                <li><div><strong>Propósito:</strong> Este acceso se utiliza <em>exclusivamente</em> para crear, subir y restaurar un único archivo de seguridad llamado <code>servicio_backup.json</code> dentro de una carpeta privada llamada <code>ServicioJW_Respaldos</code>.</div></li>
+                <li><div><strong>Alcance / Límites:</strong> La aplicación <strong>NO PUEDE</strong> ver, editar, leer ni eliminar ningún otro archivo personal, fotografía o documento en tu cuenta de Google Drive. Solo tiene acceso a la carpeta que la propia aplicación crea.</div></li>
+            </ul>
+            <div class="highlight-box">
+                <div class="hi">🔐</div>
+                <p>Tu respaldo viaja <strong>cifrado</strong> directamente entre tu celular y tu propia cuenta de Google. Nosotros nunca vemos ni tocamos ese archivo.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="policy-section">
+        <div class="section-header">
+            <div class="section-num">3</div>
+            <h2>Almacenamiento de Datos y Terceros</h2>
+        </div>
+        <div class="section-body">
+            <ul class="policy-list">
+                <li><div><strong>Almacenamiento Local:</strong> Toda tu información se almacena en una base de datos privada encriptada en tu dispositivo.</div></li>
+                <li><div><strong>Terceros:</strong> Nosotros <em>NO vendemos, transamos ni compartimos</em> tus datos con ningún tercero. La sincronización es una vía completamente privada y directa entre tu celular y tu propia cuenta de Google personal.</div></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="policy-section">
+        <div class="section-header">
+            <div class="section-num">4</div>
+            <h2>Tus Derechos</h2>
+        </div>
+        <div class="section-body">
+            <p>Tienes control total y absoluto sobre tus datos en todo momento. Puedes eliminar permanentemente toda la información simplemente borrando los datos de la aplicación o desinstalándola de tu teléfono.</p>
+            <p>Así mismo, puedes entrar a tu Google Drive y eliminar la carpeta de respaldo manualmente cuando lo desees, sin necesidad de contactarnos.</p>
+            <div class="no-data-row">
+                <span class="yes-badge">✓ Derecho a eliminar tus datos</span>
+                <span class="yes-badge">✓ Control total en todo momento</span>
+                <span class="yes-badge">✓ Sin dependencia de terceros</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-card">
+        <h3>¿Tienes alguna duda?</h3>
+        <p>Si tienes alguna pregunta técnica o sobre esta Política de Privacidad, escríbenos directamente.</p>
+        <a href="mailto:ismaeljair22@gmail.com">ismaeljair22@gmail.com</a>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+    <div class="logo">Servicio <span>JW</span></div>
+    <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="tos.html">Condiciones de Servicio</a>
+    </div>
+    <p>© 2026 Servicio JW · Desarrollado por Ismael Castro Luna · Sin fines de lucro</p>
+</div>
+
 </body>
 </html>
