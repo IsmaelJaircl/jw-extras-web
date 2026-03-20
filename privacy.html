@@ -8,14 +8,16 @@
     <meta name="google-site-verification" content="19ADT_-SKQlU1AkqNYKCh8eRjh7qXYHI87OiJlvJvzQ" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #1e293b; padding: 40px 20px; }
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #1e293b; padding: 40px 20px; line-height: 1.6; }
         .legal-card { max-width: 800px; margin: 0 auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid #2563eb; }
-        h1 { color: #2563eb; font-size: 2.2rem; margin-top: 0; }
-        .date { color: #64748b; font-size: 0.9rem; margin-bottom: 20px; display: block; font-weight: bold; }
-        p, li { color: #475569; font-size: 1.05rem; line-height: 1.7; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 15px; }
+        h1 { color: #2563eb; font-size: 2.2rem; margin-top: 0; margin-bottom: 5px; }
+        h3 { color: #1e293b; font-size: 1.3rem; margin-top: 30px; margin-bottom: 10px; }
+        .date { color: #64748b; font-size: 0.9rem; margin-bottom: 30px; display: block; font-weight: bold; }
+        p { color: #475569; font-size: 1.05rem; margin-bottom: 15px; }
+        ul { padding-left: 20px; margin-top: 5px; }
+        li { margin-bottom: 10px; color: #475569; font-size: 1.05rem; }
         strong { color: #1e293b; }
+        code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; color: #2563eb; font-family: monospace; font-size: 0.9rem; }
         .btn-back { display: inline-block; margin-bottom: 20px; color: #2563eb; text-decoration: none; font-weight: bold; }
         .btn-back:hover { text-decoration: underline; }
     </style>
@@ -25,13 +27,35 @@
         <a href="index.html" class="btn-back">← Volver al Inicio</a>
         <h1>Política de Privacidad</h1>
         <span class="date">Última actualización: 19 de marzo de 2026</span>
-        <p>En <strong>Servicio JW</strong>, diseñamos nuestra aplicación pensando en tu tranquilidad. Valoramos tu información y la procesamos estrictamente bajo las siguientes normas:</p>
+        
+        <p>En <strong>Servicio JW</strong> valoramos tu privacidad y estamos totalmente comprometidos a proteger tus datos personales. Esta política explica cómo manejamos tu información.</p>
+
+        <h3>1. Información que recopilamos</h3>
+        <p>La aplicación recopila y almacena la siguiente información <strong>exclusivamente de forma local</strong> en tu dispositivo celular:</p>
         <ul>
-            <li><strong>Control Propio:</strong> Todos los registros de la aplicación se guardan únicamente en el almacenamiento interno de tu dispositivo.</li>
-            <li><strong>Uso de Google Drive:</strong> Solicitamos permisos de Drive <strong>exclusivamente</strong> para que tú puedas hacer copias de seguridad de tus propios archivos y restaurarlos cuando lo necesites.</li>
-            <li><strong>Garantía de Privacidad 100%:</strong> Como desarrolladores, no monitorizamos, no leemos, no recolectamos y no guardamos en servidores externos absolutamente nada de lo que creas en la aplicación.</li>
-            <li><strong>Conexiones Aseguradas:</strong> Todo intercambio de datos durante el respaldo ocurre de manera blindada mediante la infraestructura oficial y cifrada de Google.</li>
+            <li><strong>Información del Perfil:</strong> Nombre, congregación, tipo de publicador y privilegios.</li>
+            <li><strong>Datos de Servicio:</strong> Informes de horas teocráticas, colocaciones, videos y revisitas.</li>
+            <li><strong>Datos de Territorio:</strong> Mapas, notas e historial de actividades para la gestión de territorios.</li>
         </ul>
+
+        <h3>2. Uso de Google Drive (Nube)</h3>
+        <p>Si activas la función opcional de copia de seguridad (Backup), la aplicación solicitará acceso a tu Google Drive mediante el permiso sensible <code>drive.file</code>. Este permiso es oficial y tiene reglas estrictas:</p>
+        <ul>
+            <li><strong>Propósito:</strong> Este acceso se utiliza <em>exclusivamente</em> para crear, subir y restaurar un único archivo de seguridad llamado <code>servicio_backup.json</code> dentro de una carpeta privada llamada <code>ServicioJW_Respaldos</code>.</li>
+            <li><strong>Alcance / Límites:</strong> La aplicación <strong>NO PUEDE</strong> ver, editar, leer ni eliminar ningún otro archivo personal, fotografía o documento en tu cuenta de Google Drive. Solo tiene acceso a la carpeta que la propia aplicación crea.</li>
+        </ul>
+
+        <h3>3. Almacenamiento de Datos y Terceros</h3>
+        <ul>
+            <li><strong>Almacenamiento Local:</strong> Toda tu información se almacena en una base de datos privada encriptada en tu dispositivo.</li>
+            <li><strong>Terceros:</strong> Nosotros NO vendemos, transamos ni compartimos tus datos con ningún tercero. La sincronización es una vía completamente privada y directa entre tu celular y tu propia cuenta de Google personal.</li>
+        </ul>
+
+        <h3>4.  Tus Derechos</h3>
+        <p>Tienes control total y absoluto sobre tus datos en todo momento. Puedes eliminar permanentemente toda la información simplemente borrando los datos de la aplicación o desinstalándola de tu teléfono. Así mismo, puedes entrar a tu Google Drive y eliminar la carpeta de respaldo manualmente cuando lo desees.</p>
+
+        <h3>5. Contacto</h3>
+        <p>Si tienes alguna duda técnica o sobre la gestión de esta Política de Privacidad, puedes ponerte en contacto directamente con el desarrollador al siguiente correo: <strong>ismaeljaircl@gmail.com</strong>.</p>
     </div>
 </body>
 </html>
