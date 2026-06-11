@@ -2,133 +2,334 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicio JW - Lectura Bíblica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>JW Extras — Biblia</title>
+    <meta name="description" content="Abre este pasaje bíblico directamente en JW Extras">
+    <meta property="og:title" content="JW Extras — Biblia">
+    <meta property="og:description" content="Abre este pasaje bíblico directamente en la app JW Extras">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
-            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(160deg, #0a0a1a 0%, #0d2137 40%, #0a1628 100%);
+            color: #fff;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            padding: 20px;
+            overflow: hidden;
         }
 
-        .container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 32px;
-            padding: 50px 30px;
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+            z-index: 0;
+        }
+        body::before {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, #2563eb, transparent);
+            top: -100px; right: -80px;
+        }
+        body::after {
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, #0ea5e9, transparent);
+            bottom: -80px; left: -60px;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.1); }
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 28px;
+            padding: 48px 32px 40px;
+            max-width: 400px;
+            width: 100%;
             text-align: center;
-            max-width: 380px;
-            width: 85%;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow:
+                0 32px 64px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.08);
+            animation: cardIn 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .app-icon {
+            width: 88px; height: 88px;
+            border-radius: 22px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 50%, #2563eb 100%);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 12px 32px rgba(37,99,235,0.4);
+            font-size: 40px;
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+        @keyframes iconPulse {
+            0%, 100% { box-shadow: 0 12px 32px rgba(37,99,235,0.4); }
+            50% { box-shadow: 0 12px 48px rgba(37,99,235,0.6); }
+        }
+
+        .app-name {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 24px;
+        }
+
+        .bible-ref {
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #93c5fd, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bible-detail {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 28px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+            min-height: 24px;
+        }
+        .spinner {
+            width: 18px; height: 18px;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-top-color: #2563eb;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-bottom: 12px;
+        }
+
+        .btn-open {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+        }
+        .btn-open:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,99,235,0.5); }
+
+        .store-buttons {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 8px;
+            animation: fadeUp 0.5s ease;
+        }
+        .store-buttons.visible { display: flex; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #6b21a8, #4c1d95);
-            border-radius: 24px;
-            margin: 0 auto 24px;
+        .btn-store {
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 36px;
-            box-shadow: 0 15px 30px rgba(107, 33, 168, 0.4);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        h1 {
-            margin: 0 0 8px;
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .reference {
-            font-size: 26px;
-            color: #d8b4fe;
-            margin: 16px 0 24px;
-            font-weight: 600;
-            background: linear-gradient(to right, #e9d5ff, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p {
-            color: #a1a1aa;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 14px;
+            font-family: inherit;
             font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 36px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #ffffff;
-            color: #121212;
-            padding: 16px 36px;
-            border-radius: 100px;
-            text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+        }
+        .btn-store:hover { background: rgba(255,255,255,0.14); }
+        .btn-store svg { width: 22px; height: 22px; fill: currentColor; }
+
+        .divider {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0 16px;
+            color: rgba(255,255,255,0.25);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .divider.visible { display: flex; }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
         }
 
-        .btn:hover {
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 15px 30px rgba(255,255,255,0.2);
+        .btn-jw {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            border-radius: 12px;
+            background: transparent;
+            color: rgba(255,255,255,0.45);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
         }
-        
-        .btn:active {
-            transform: scale(0.98);
-        }
+        .btn-jw.visible { display: flex; }
+        .btn-jw:hover { color: rgba(255,255,255,0.7); }
     </style>
 </head>
 <body>
+    <div class="card">
+        <div class="app-icon">📖</div>
+        <div class="app-name">JW Extras</div>
 
-    <div class="container">
-        <div class="icon">📖</div>
-        <h1>Servicio JW</h1>
-        <div class="reference" id="refText">Cargando...</div>
-        <p>Parece que aún no tienes instalada la aplicación, o abriste el enlace en el navegador en lugar de hacerlo desde la app.</p>
-        <a href="#" class="btn" onclick="openApp()">Abrir en la App</a>
+        <div class="bible-ref" id="bibleRef">Biblia</div>
+        <div class="bible-detail" id="bibleDetail"></div>
+
+        <div class="status" id="status">
+            <div class="spinner"></div>
+            <span>Abriendo en la app…</span>
+        </div>
+
+        <a href="#" class="btn-primary btn-open" id="btnOpen" style="display:none;" onclick="tryOpen()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Abrir en JW Extras
+        </a>
+
+        <div class="store-buttons" id="storeButtons">
+            <!-- REEMPLAZA ESTOS LINKS CON TUS LINKS REALES -->
+            <a href="https://apps.apple.com/us/app/servicio-jw-mi-ministerio/id6770139586" class="btn-store" id="btnApple">
+                <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
+                App Store
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.ismaelcastroluna.juegosbiblicos&pcampaignid=web_share" class="btn-store" id="btnGoogle">
+                <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302c.7.7.7 1.68 0 2.38l-2.302 2.302L15.396 12l2.302-2.492zM5.864 3.471l10.937 6.333-2.302 2.302-8.635-8.635z"/></svg>
+                Google Play
+            </a>
+        </div>
+
+        <div class="divider" id="divider">O</div>
+
+        <a href="#" class="btn-jw" id="btnJw">
+            🌐 Leer en jw.org
+        </a>
     </div>
 
     <script>
-        // Obtener los parámetros de la URL para saber qué libro abrir
-        const urlParams = new URLSearchParams(window.location.search);
-        const libro = urlParams.get('libro') || 'La Biblia';
-        const capitulo = urlParams.get('capitulo') || '';
-        const versiculo = urlParams.get('versiculo') || '';
+        const params = new URLSearchParams(window.location.search);
+        const libro = params.get('libro') || '';
+        const capitulo = params.get('capitulo') || '';
+        const versiculo = params.get('versiculo') || '';
 
-        // Formatear el texto (Ej. Juan 3:16)
-        let refStr = libro;
-        if (capitulo) refStr += ` ${capitulo}`;
-        if (versiculo) refStr += `:${versiculo}`;
+        // Mostrar referencia bíblica
+        let ref = libro || 'Biblia';
+        if (capitulo) ref += ` ${capitulo}`;
+        if (versiculo) ref += `:${versiculo}`;
+        document.getElementById('bibleRef').textContent = ref;
 
-        document.getElementById('refText').innerText = refStr;
-
-        // Intentar lanzar la app automáticamente por si el Universal Link falló
-        function openApp() {
-            window.location.href = `serviciojw://biblia${window.location.search}`;
+        let detail = 'Lectura bíblica';
+        if (libro && capitulo) {
+            detail = versiculo 
+                ? `${libro}, capítulo ${capitulo}, versículo ${versiculo}`
+                : `${libro}, capítulo ${capitulo}`;
         }
-        
-        // Ejecutar el intento automático después de medio segundo
-        setTimeout(openApp, 500);
+        document.getElementById('bibleDetail').textContent = detail;
+
+        // Deep link
+        function buildDeepLink() {
+            let url = `serviciojw://biblia`;
+            if (libro) url += `?libro=${encodeURIComponent(libro)}`;
+            if (capitulo) url += `&capitulo=${encodeURIComponent(capitulo)}`;
+            if (versiculo) url += `&versiculo=${encodeURIComponent(versiculo)}`;
+            return url;
+        }
+
+        // JW.org link
+        function buildJwLink() {
+            return 'https://www.jw.org/es/biblioteca/biblia/biblia-estudio/libros/';
+        }
+        document.getElementById('btnJw').href = buildJwLink();
+
+        let appOpened = false;
+
+        function tryOpen() {
+            window.location.href = buildDeepLink();
+            setTimeout(showFallback, 2000);
+        }
+
+        function showFallback() {
+            if (appOpened) return;
+            document.getElementById('status').style.display = 'none';
+            document.getElementById('btnOpen').style.display = 'flex';
+            document.getElementById('storeButtons').classList.add('visible');
+            document.getElementById('divider').classList.add('visible');
+            document.getElementById('btnJw').classList.add('visible');
+        }
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) appOpened = true;
+        });
+        window.addEventListener('blur', function() { appOpened = true; });
+
+        if (libro) {
+            tryOpen();
+        } else {
+            showFallback();
+        }
     </script>
 </body>
 </html>
