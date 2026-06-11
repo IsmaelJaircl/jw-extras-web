@@ -1,1 +1,12 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "4P3V22PKFA.com.ismaelcastroluna.juegosbiblicos",
+        "paths": [ "/jw-extras-web/*" ]
+      }
+    ]
+  }
+}
 
